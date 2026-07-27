@@ -6,7 +6,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { CartProvider } from "@/components/providers/cart-provider";
 import { SITE } from "@/constants/site";
 
-// @ts-ignore
+// @ts-expect-error
 import "./globals.css";
 
 const inter = Inter({
