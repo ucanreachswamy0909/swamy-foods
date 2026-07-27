@@ -1,0 +1,66 @@
+"use client";
+
+import {
+  createContext,
+  createElement,
+  useContext,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
+
+type CartContextType = {
+  cartCount: number;
+  addToCart: () => void;
+  removeFromCart: () => void;
+  clearCart: () => void;
+};
+
+const CartContext = createContext<CartContextType | undefined>(undefined);
+CartContext.displayName = "CartContext";
+
+export function CartProvider({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  const [cartCount, setCartCount] = useState(0);
+
+  const addToCart = () => {
+    setCartCount((prev) => prev + 1);
+  };
+
+  const removeFromCart = () => {
+    setCartCount((prev) => (prev > 0 ? prev - 1 : 0));
+  };
+
+  const clearCart = () => {
+    setCartCount(0);
+  };
+
+  const value = useMemo(
+    () => ({
+      cartCount,
+      addToCart,
+      removeFromCart,
+      clearCart,
+    }),
+    [cartCount]
+  );
+
+  return createElement(
+    CartContext.Provider,
+    { value },
+    children
+  );
+}
+
+export function useCart() {
+  const context = useContext(CartContext);
+
+  if (context === undefined) {
+    throw new Error("useCart must be used inside CartProvider");
+  }
+
+  return context;
+}
