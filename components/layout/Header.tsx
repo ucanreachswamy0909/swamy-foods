@@ -20,11 +20,11 @@ export default function Header() {
           {/* Logo */}
           <div>
             <h1 className="text-4xl font-extrabold text-green-700">
-              SWAMY SHOP
+              SWAMY FOODS
             </h1>
 
             <p className="text-xs text-gray-500">
-              Everything You Need, All in One Shop
+              Authentic Madugula Halwa & Traditional Foods
             </p>
           </div>
 
