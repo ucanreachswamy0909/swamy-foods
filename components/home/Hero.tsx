@@ -4,7 +4,7 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-6 py-24 text-center">
 
         <h1 className="text-6xl font-bold">
-          Original Madugula Halwa
+          Everything You Need, All in One Shop
         </h1>
 
         <p className="text-2xl mt-6">

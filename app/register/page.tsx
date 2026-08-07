@@ -51,7 +51,7 @@ export default function RegisterPage() {
       <div className="bg-white w-full max-w-md rounded-2xl shadow-2xl p-8">
 
         <h1 className="text-3xl font-bold text-center text-green-800">
-          SWAMY FOODS
+          SWAMY SHOP
         </h1>
 
         <p className="text-center text-gray-500 mt-2">

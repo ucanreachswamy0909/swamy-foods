@@ -8,7 +8,7 @@ export default function Header() {
 
           <div className="flex gap-6">
             <span>📞 +91 8499899868</span>
-            <span>✉️ support@swamyfoods.in</span>
+            <span>✉️ support@swamyshop.in</span>
           </div>
         </div>
       </div>
@@ -20,11 +20,11 @@ export default function Header() {
           {/* Logo */}
           <div>
             <h1 className="text-4xl font-extrabold text-green-700">
-              SWAMY FOODS
+              SWAMY SHOP
             </h1>
 
             <p className="text-xs text-gray-500">
-              Original Madugula Halwa
+              Everything You Need, All in One Shop
             </p>
           </div>
 
