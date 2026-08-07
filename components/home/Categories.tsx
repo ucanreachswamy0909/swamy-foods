@@ -1,63 +1,43 @@
-const categories = [
-  {
-    name: "Halwa",
-    emoji: "🍬",
-    color: "bg-orange-100",
-  },
-  {
-    name: "Pickles",
-    emoji: "🥒",
-    color: "bg-green-100",
-  },
-  {
-    name: "Dry Fruits",
-    emoji: "🥜",
-    color: "bg-yellow-100",
-  },
-  {
-    name: "Sweets",
-    emoji: "🍭",
-    color: "bg-pink-100",
-  },
-  {
-    name: "Gift Boxes",
-    emoji: "🎁",
-    color: "bg-purple-100",
-  },
-  {
-    name: "Combos",
-    emoji: "🥭",
-    color: "bg-red-100",
-  },
-];
+import { getCategories } from "@/lib/categories";
 
-export default function Categories() {
+export default async function Categories() {
+  const categories = await getCategories();
+
   return (
     <section className="max-w-7xl mx-auto py-16 px-6">
+      <div className="flex items-center justify-between mb-10">
+        <h2 className="text-4xl font-bold">
+          Shop By Category
+        </h2>
 
-      <h2 className="text-4xl font-bold text-center mb-12">
-        Browse Categories
-      </h2>
-
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-
-        {categories.map((item) => (
-          <div
-            key={item.name}
-            className={`${item.color} rounded-2xl p-8 text-center shadow hover:shadow-xl transition cursor-pointer`}
-          >
-            <div className="text-5xl">
-              {item.emoji}
-            </div>
-
-            <h3 className="mt-5 text-xl font-bold">
-              {item.name}
-            </h3>
-          </div>
-        ))}
-
+        <button className="text-green-700 font-bold hover:underline">
+          View All →
+        </button>
       </div>
 
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
+        {categories.map((category: any) => (
+          <div
+            key={category.id}
+            className="bg-white rounded-2xl shadow hover:shadow-xl transition duration-300 overflow-hidden cursor-pointer"
+          >
+            <img
+              src={
+                category.image_url ||
+                "https://placehold.co/400x400?text=Category"
+              }
+              alt={category.name}
+              className="w-full h-52 object-cover"
+            />
+
+            <div className="p-5 text-center">
+              <h3 className="text-xl font-bold">
+                {category.name}
+              </h3>
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
